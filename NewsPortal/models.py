@@ -22,6 +22,7 @@ class Author(models.Model):
                 postcommentrating += j.rating
         self.rating = postcommentrating + postrating + commentrating
         self.save()
+        print("hello")
 
 
 class Category(models.Model):
