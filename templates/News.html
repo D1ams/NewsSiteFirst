@@ -1,0 +1,28 @@
+{% extends 'flatpages/default.html' %}
+{% load custom_filters %}
+{% block title %}
+News
+{% endblock title %}
+{% block content %}
+{% if news %}
+{% for new in news %}
+<table style="height: 274px; border-color: black; margin-left: auto; margin-right: auto;" border="2" width="283">
+    <tbody>
+        <tr style="height: 5px;">
+            <td style="width: 273px; height: 5px; text-align: center;">{{ new.date|date:'d.M.Y' }}&nbsp;</td>
+        </tr>
+        <tr style="height: 60.5938px;">
+            <td style="width: 273px; height: 60.5938px; text-align: center;"><a href="{{ new.id }}">{{ new.name|censor }}</a></td>
+        </tr>
+        <tr style="height: 129px;">
+            <td style="width: 273px; height: 129px; text-align: justify;">
+             <p style="text-align: center;">{{ new.content|truncatechars:20|censor }}&nbsp;</p>
+            </td>
+        </tr>
+    </tbody>
+</table>
+{% endfor %}
+{% else %}
+    <h2> Сегодня нечего прочитать </h2>
+{% endif %}
+{% endblock content %}

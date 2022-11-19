@@ -1,0 +1,22 @@
+{% extends 'flatpages/default.html' %}
+{% load custom_filters %}
+{% block title %}
+{{ news.name|truncatechars:20}}
+{% endblock title %}
+{% block content %}
+<table style="height: 274px; border-color: black; margin-left: auto; margin-right: auto;" border="2" width="283">
+    <tbody>
+        <tr style="height: 5px;">
+            <td style="width: 273px; height: 5px; text-align: center;">{{ news.date|date:'d.M.Y' }}&nbsp;</td>
+        </tr>
+        <tr style="height: 60.5938px;">
+            <td style="width: 273px; height: 60.5938px; text-align: center;">{{ news.name|censor }}&nbsp;</td>
+        </tr>
+        <tr style="height: 129px;">
+            <td style="width: 273px; height: 129px; text-align: justify;">
+             <p style="text-align: center;">{{ news.content|censor }}&nbsp;</p>
+            </td>
+        </tr>
+    </tbody>
+</table>
+{% endblock content %}
