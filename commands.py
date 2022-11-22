@@ -11,7 +11,7 @@ Category.objects.create(category='История')
 Category.objects.create(category='Искусство')
 author1 = Author.objects.all()[0]
 author2 = Author.objects.all()[1]
-Post1 = Post.objects.create(author=author1, name='Зенит расспался', content='Питерский клуб Зенит вчера в 2 часа дня распался и прекратил свое существование')
+Post1 = Post.objects.create(author=author1, name='Зенит распался', content='Питерский клуб Зенит вчера в 2 часа дня распался и прекратил свое существование')
 from NewsPortal.resources import *
 Post2 = Post.objects.create(author=author1,type=article,  name='Почему распался СССР?', content='Множество причин и предпосылок сподвигло развалу СССР')
 Post3 = Post.objects.create(author=author2,type=article,  name='Какое послание зашифровал в своём гениальном полотне «Триумф смерти» Питер Брейгель Старший', content='Он писал масштабные мифологические и библейские сюжеты, а прославился своими картинами')

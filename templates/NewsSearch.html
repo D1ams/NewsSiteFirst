@@ -1,10 +1,17 @@
 {% extends 'flatpages/default.html' %}
 {% load custom_filters %}
+{% load custom_tags %}
 {% block title %}
-News
+Search
 {% endblock title %}
 {% block content %}
-{% if news %}
+<h1> </h1>
+   <form action="" method="get" style="text-align: center;">
+       {{ filterset.form.as_p }}
+       <input type="submit" value="Найти" />
+
+   </form>
+{% if filtered %}
 {% for new in news %}
 <table style="height: 274px; border-color: black; margin-left: auto; margin-right: auto;" border="2" width="283">
     <tbody>
@@ -22,23 +29,7 @@ News
     </tbody>
 </table>
 {% endfor %}
-{% else %}
-    <h2> Сегодня нечего прочитать </h2>
 {% endif %}
-<p style="text-align: center;">
-{% if page_obj.has_previous %}
-<a href="?page=1">1</a>
-    {% if page_obj.previous_page_number != 1 %}
-        ...
-        <a href="?page={{page_obj.previous_page_number}}">{{page_obj.previous_page_number}}</a>
-    {% endif %}
-{% endif %}
-{{ page_obj.number }}
-{% if page_obj.has_next %}
-<a href="?page={{page_obj.next_page_number}}">{{page_obj.next_page_number}}</a>
-{% if page_obj.next_page_number != page_obj.paginator.num_pages %}
-...
-    <a href="?page={{page_obj.paginator.num_pages}}">{{page_obj.paginator.num_pages}}</a></p>
-{% endif%}
-{% endif%}
+
+
 {% endblock content %}
